@@ -1,0 +1,287 @@
+---
+title: Scheduled curated deep analytics with R and Observable JS
+subtitle: Melbourne R User Group
+author: Christian Klettner
+date: today
+date-format: "D MMM YYYY"
+format: 
+    revealjs:
+      css: www/style.css
+      smaller: true
+---
+
+## Links 
+
+Project repo: [https://github.com/kletts/melb-weather](https://github.com/kletts/melb-weather){target="_blank"} 
+
+Demo app in Observable Framework on Github Pages [https://kletts.github.io/melb-weather/app](https://kletts.github.io/melb-weather/app){target="_blank"} 
+
+By business website: Business Science Solutions (BSS) at [https://www.bizscisolve.com.au/](https://www.bizscisolve.com.au/){target="_blank"} 
+
+## About the BSS website
+
+ - Dashboard with select macroeconomic, credit risk and financial metrics and concepts 
+ - Methodology and technical principles are explained 
+ - Concepts are illustrated with the latest available data
+ - Interactivity is provided, but limited to key analytical conpets
+
+## Example embedded app
+
+```{=html}
+<iframe width="100%" height="646" frameborder="0"
+  src="https://observablehq.com/embed/2aa968bcf8375b64@85?cells=viewof+datefilter%2Cviewof+span%2Cviewof+vix"></iframe>
+```
+
+## Maintaining the website 
+
+ - Uses exclusively [Observable data loaders](https://observablehq.com/framework/data-loaders)
+ - R scripts download source data & perform all analytical and statistical manipulations
+ - Write out to flat files for presentation:
+   - Small datasets written as CSV (fast to load but space inefficient)
+   - Large datasets written as Parquet (slower to load but space efficient)
+   - Geospatial data written as Geojson (migrating to Geoparquet)
+
+ - Forty R data loaders are maintained
+   - Renv manages all dependencies, replicated on local and Docker
+
+ - Each source data file has a cache horizon aligned to underlying publication frequency 
+    - A script checks the age of the data file and invalidates the cache when too old
+
+## Traditional dashboard  
+
+Everything is live on demand
+
+![](www/framework2.jpg)
+
+## Dashboards
+
+ - Grid views lack a story telling order
+ - Dashboards provide visibility into a dataset, but analysis is limited 
+ - Many dashboard tools:
+   - Don't provide algorithms for smoothing data to highlight trends 
+   - Don't adjust numbers for scale: population growth, inflation, economy size 
+   - Don't report marginal effects just sub-population averages
+   - Don't include methodology, often documentation is elsewhere and hard to find
+
+ - In operation:  
+   - Dashboards are often **too dynamic**, trying to fetch and manipulate data in response to every action by the user
+   - Difficult to navigate, each click has a cost 
+
+ - In all these Shiny outperforms Power BI, Looker, Tableau etc 
+
+## Problems with server-side rendering 
+
+:::: {.columns}
+
+::: {.column width="60%"}
+ - Server architectures are vastly easier to spin up today, but not traditionally 
+ - Server hosting is expensive or limited
+ - Server apps have long latency: 
+     - query workloads passed back and forth 
+     - cold start up
+:::
+
+::: {.column width="40%"}
+![](www/shinyappsio.png){width=80%}
+:::
+
+::::
+
+## Observable Framework 
+
+ - A static site building tools for data science
+ - Very similar to *Quarto*: more **app** less **document** focused
+
+![](www/framework1.jpg)
+
+## Static site hosting 
+
+ - Most websites are static
+ - Static websites are **free to host**, eg Github pages 
+ - Data loaders and reference data are not deployed (stay local)  
+      - But output and javascript is [fully visible](https://www.bizscisolve.com.au/filter)
+ - Significant underused computing power even in mobile devices
+ - Content Delivery Networks cache javascript libraries and website content at the ISP
+
+## Compare
+
+Server hosted dashboard [BIS Credit Gaps](https://data.bis.org/topics/CREDIT_GAPS/tables-and-dashboards){target="_blank"}
+
+Local static site [BSS Credit Gaps](https://www.bizscisolve.com.au/creditgap){target="_blank"}
+
+![](www/creditgaps.png)
+
+## Framework workflow 
+
+![](www/flow.jpg)
+
+## Supported data loaders 
+
+ - .js - JavaScript (node)
+ - .ts - TypeScript (tsx)
+ - .py - Python (python3)
+ - .R - R (Rscript)
+ - .rs - Rust (rust-script)
+ - .go - Go (go run)
+ - .java — Java (java)
+ - .jl - Julia (julia)
+ - .php - PHP (php)
+ - .sh - shell script (sh): and therefore almost anything
+ - .exe - arbitrary executable
+
+## In depth analytics & story telling
+
+ - Data story telling 
+    - Articulate a theory/conjecture
+       - Identify cause, a mechanism/path, then effect 
+    - Apply an explicit narrative order eg from problem to solution
+
+ - Good stories are nuianced 
+    - Include statistical tests and performance measures 
+    - Correlation and cointegration, what's happening behind the scenes
+    - Time & cohort varying trends: people differ
+    - Policy interventions, feedbacks and impulse response
+    - Look for breakpoints, regime switches, non-linear relationships
+    - Measurement/sampling error and noise, show prediction intervals
+    - Optimisation, equilibrium and envelopes: versus the current state
+
+## Leveraging machine learning 
+
+  - Black box models are anathema to many stories
+  - Instead use advanced algorithms sparingly and conciously 
+  - Accelerate workflows, feature engineering, text categorisation
+  - Simplify or linearise the final model for presentation
+  - Watch the change in parameterisation over time
+  - Exploit unusual data points explicitly, incl extrapolation vs outlier exclusion
+
+## Visual story telling
+
+ - Key visual keys: animation, colour and swarms
+ - Tick tools: overall trends individual data points
+ - Facets and constrasts: highlight differences between sets 
+ - Apply factor orders where relevant (ACT is not the first state) 
+ - Linked and common scaled components 
+ - Exploit colour queues (red bad, green good)
+
+[Observable Plot](https://observablehq.com/plot/what-is-plot){target="_blank"}  a good compromise between:
+
+ - interactivity and advanced graphical forms
+ - customisation for explicit story telling (without excessive visual clutter)
+
+Compared [eCharts](https://echarts.apache.org/examples/en/index.html){target="_blank"}, plotly, highcharter
+
+## Javascript vs R
+
+ - Analytics can be hosted either in R (in the data loader) or Javascript (in the deployed page)
+ - In R: 
+     - Utilitise the syntatic power of data wranging in R 
+     - Remains confidential 
+     - Is performed ahead of requirements 
+     - Optimised and statistically validated 
+ - In JS: 
+     - Fast and transparent manipulation of parameters
+     - Scalable for viewport
+     - But wven advanced libraries are cumbersome
+
+Eg. Tidyverse vs javascript (Arquero) [syntax comparison](https://observablehq.com/@observablehq/data-wrangling-with-arquero-from-r){target="_blank"} 
+
+## Scheduled 
+
+ - scheduled analytics requires conciously managing the updates to data and parameters 
+ - on demand updates can lead to incomplete data, some data may not yet have updated to the latest version 
+ - schedules mean building reporting to align with business reporting cycles 
+ - run-times of complex algorithm and big data becomes invisible 
+ - static typing enables tracing on fixed/repeatable instances
+
+## Benefit of structured release cycles 
+
+ - Best practice data governance uses structure release cycles to data 
+ - Provides for: 
+   - clear vintages, release sign-offs
+   - methodology change windows including backdating changes
+   - maintenance cycles/rthyms
+   - clear SLAs for data providers  
+   - triggered by events: financial close
+
+## Scheduling tools 
+
+- Github actions makes it easy to rerun workflows on schedules 
+
+```
+on:
+  schedule: 
+   - cron: "10 17 * * *"
+  workflow_dispatch: 
+```
+
+- test cron at [crontab.guru/](https://crontab.guru/)
+- a workflow dispatch also allows manually trigger a workflow
+
+## Github actions 
+
+ - key parts of a actions workflow
+
+```
+- uses: actions/checkout@v4
+- uses: r-lib/actions/setup-r@v2
+- uses: r-lib/actions/setup-renv@v2
+- uses: actions/setup-node@v4
+- run: rm -rf src/.observablehq/cache/data
+- run: npm run build
+- uses: actions/upload-pages-artifact@v3
+- uses: actions/deploy-pages@v4
+```
+
+## Some key similarities between Observable and Quarto/Jupyter Lab
+
+- markdown syntax is the common method for content (especially text): but html can be interwoven where specifically required 
+- css styling through classes and ids, Observable plots and tables are also html objects so can also be styled with css
+- communication of mathematical concepts through latex/mathjax/etc support
+- website functionality which grows seemlessly to full site documentation 
+- lock down the run state: environments
+- embedded in version control through .git provide tracability of changes
+- include tikz, dot & mermaid  
+
+## Some key differences 
+
+ - observable is an app (like shiny) the whole document is run at once 
+     - order of objects doesn't matter, unlike Quarto
+ - *hoisting* and immutable variables 
+ - *generators*: explicit control over state changes 
+ - no dynamic document support: eg bibtex and key word indexing
+ - lack of vectorisation
+ - object oriented programming through implicit
+ - zero base indexing: like python
+ - destructuring: like python, javascript can destructure 
+ - type flexible JSON style row arrays: hence the rise of Typescript
+ - explicit importing, like python it is practice to import libraries with aliases or just individual functions
+ - CDNs and entry points: [how to call a JS library](https://observablehq.com/@observablehq/module-require-debugger)
+
+## R design principles apply
+
+- Tidyverse vs Javascript (exp Arquero) [syntax https://observablehq.com/@observablehq/data-wrangling-with-arquero-from-r](https://observablehq.com/@observablehq/data-wrangling-with-arquero-from-r)
+
+   - Piping of data operations from verb to verb 
+   - Mutation/derive in place
+   - Data masking: variables in the data vs variables in the environment
+
+ - ggplot vs Observable Plot:  [see https://observablehq.com/@observablehq/plot-from-ggplot2](https://observablehq.com/@observablehq/plot-from-ggplot2).  Both Grammar of Graphics based, with the principles: 
+
+   - layers for each geometry/aesthetic/mark 
+   - theming and styling added separately 
+   - scales derived from data with translations from **domain** (data values) to **range** (visual representation) 
+
+## Example app 
+
+ - Melbourne weather: common trend and half hourly cycle extraction 
+ - Updates daily: 
+    - on schedule
+    - downloads fresh data 
+    - updates analysis 
+    - rebuilds site
+ - Role of R: data downloads (avoids CORS), regularises missing data, fits dynamic linear model (dlm)
+ - Role of Observable: interactivity for metrics & charts  
+
+[https://kletts.github.io/melb-weather/app/](https://kletts.github.io/melb-weather/app/){target="_blank"} 
+
+## Questions? 

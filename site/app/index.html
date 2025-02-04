@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="generator" content="Observable Framework v1.13.2">
+<title>Melbourne Weather | Melb Weather</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;display=swap" crossorigin>
+<link rel="preload" as="style" href="./_observablehq/theme-air,near-midnight.dcdbf18e.css">
+<link rel="preload" as="style" href="./_observablehq/stdlib/inputs.ea9fd553.css">
+<link rel="preload" as="style" href="./_npm/katex@0.16.21/dist/katex.min.css">
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;display=swap" crossorigin>
+<link rel="stylesheet" type="text/css" href="./_observablehq/theme-air,near-midnight.dcdbf18e.css">
+<link rel="stylesheet" type="text/css" href="./_observablehq/stdlib/inputs.ea9fd553.css">
+<link rel="stylesheet" type="text/css" href="./_npm/katex@0.16.21/dist/katex.min.css">
+<link rel="modulepreload" href="./_observablehq/client.ddba17e1.js">
+<link rel="modulepreload" href="./_observablehq/runtime.f168f711.js">
+<link rel="modulepreload" href="./_observablehq/stdlib.a7574edc.js">
+<link rel="modulepreload" href="./_npm/d3@7.9.0/7055d4c5.js">
+<link rel="modulepreload" href="./_observablehq/stdlib/inputs.7ef0a457.js">
+<link rel="modulepreload" href="./_npm/@observablehq/plot@0.6.16/239523e7.js">
+<link rel="modulepreload" href="./_observablehq/stdlib/tex.4336eb83.js">
+<link rel="modulepreload" href="./_npm/d3-dsv@3.0.1/407f7a1f.js">
+<link rel="modulepreload" href="./_npm/htl@0.3.1/063eb405.js">
+<link rel="modulepreload" href="./_npm/isoformat@0.2.1/c68fbd73.js">
+<link rel="modulepreload" href="./_npm/katex@0.16.21/3ee4e3d8.js">
+<link rel="modulepreload" href="./_npm/d3-array@3.2.4/e95f898e.js">
+<link rel="modulepreload" href="./_npm/d3-axis@3.0.0/d44feff9.js">
+<link rel="modulepreload" href="./_npm/d3-brush@3.0.0/5830b12a.js">
+<link rel="modulepreload" href="./_npm/d3-chord@3.0.1/84d7b8e9.js">
+<link rel="modulepreload" href="./_npm/d3-color@3.1.0/2c0cdfa2.js">
+<link rel="modulepreload" href="./_npm/d3-contour@4.0.2/626bedc4.js">
+<link rel="modulepreload" href="./_npm/d3-delaunay@6.0.4/00c41b5d.js">
+<link rel="modulepreload" href="./_npm/d3-dispatch@3.0.1/b5f7cdc6.js">
+<link rel="modulepreload" href="./_npm/d3-drag@3.0.0/b22c5864.js">
+<link rel="modulepreload" href="./_npm/d3-ease@3.0.1/6f15f633.js">
+<link rel="modulepreload" href="./_npm/d3-fetch@3.0.1/ef1ec490.js">
+<link rel="modulepreload" href="./_npm/d3-force@3.0.0/5e1ff060.js">
+<link rel="modulepreload" href="./_npm/d3-format@3.1.0/5851d7ef.js">
+<link rel="modulepreload" href="./_npm/d3-geo@3.1.1/dcd02767.js">
+<link rel="modulepreload" href="./_npm/d3-hierarchy@3.1.2/f1db2593.js">
+<link rel="modulepreload" href="./_npm/d3-interpolate@3.0.1/034b7bcb.js">
+<link rel="modulepreload" href="./_npm/d3-path@3.1.0/4bb53638.js">
+<link rel="modulepreload" href="./_npm/d3-polygon@3.0.1/bbafde58.js">
+<link rel="modulepreload" href="./_npm/d3-quadtree@3.0.1/aa5b35a8.js">
+<link rel="modulepreload" href="./_npm/d3-random@3.0.1/32c7fec2.js">
+<link rel="modulepreload" href="./_npm/d3-scale@4.0.2/567840a0.js">
+<link rel="modulepreload" href="./_npm/d3-scale-chromatic@3.1.0/cf9b720b.js">
+<link rel="modulepreload" href="./_npm/d3-selection@3.0.0/5dcd62f4.js">
+<link rel="modulepreload" href="./_npm/d3-shape@3.2.0/f8e03c56.js">
+<link rel="modulepreload" href="./_npm/d3-time@3.1.0/5bc129e1.js">
+<link rel="modulepreload" href="./_npm/d3-time-format@4.1.0/19c92b44.js">
+<link rel="modulepreload" href="./_npm/d3-timer@3.0.1/f31b5398.js">
+<link rel="modulepreload" href="./_npm/d3-transition@3.0.1/8debb4ba.js">
+<link rel="modulepreload" href="./_npm/d3-zoom@3.0.0/4b0cc581.js">
+<link rel="modulepreload" href="./_npm/interval-tree-1d@1.0.4/a62ae5ce.js">
+<link rel="modulepreload" href="./_npm/internmap@2.0.3/5eed35fd.js">
+<link rel="modulepreload" href="./_npm/delaunator@5.0.1/e67acb27.js">
+<link rel="modulepreload" href="./_npm/binary-search-bounds@2.0.5/1ee6c50d.js">
+<link rel="modulepreload" href="./_npm/robust-predicates@3.0.2/8ac9039b.js">
+<script type="module">
+
+import {define} from "./_observablehq/client.ddba17e1.js";
+import {registerFile} from "./_observablehq/stdlib.a7574edc.js";
+
+registerFile("./data/bom.csv", {"name":"./data/bom.csv","mimeType":"text/csv","path":"./_file/data/bom.f3710988.csv","lastModified":1738626424853,"size":75336});
+
+define({id: "ab00fc39", inputs: ["FileAttachment"], outputs: ["data"], body: async (FileAttachment) => {
+const data = await FileAttachment("./data/bom.csv").csv({ typed: true })
+return {data};
+}});
+
+define({id: "c94a6d48", inputs: ["display","data"], body: (display,data) => {
+display(data)
+}});
+
+define({id: "c66cc8e8", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex.block`\begin{aligned}
+\text{Observations:} \quad x_{i,t} &= F \cdot \theta_{t} + v_t \qquad &v_{t} \sim N(0, V) \\
+\text{Transitions:} \quad \theta_{t}  &=  G \cdot \theta_{t-1} + w_t \qquad &w_t \sim N(0, W)
+\end{aligned}`
+))
+}});
+
+define({id: "7d234596", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex.block`F = \begin{bmatrix}
+1 & 1 & 0 \\
+1 & 1 & 0 \\
+1 & 1 & 0 \\
+1 & 1 & 0 \\
+\end{bmatrix}`
+))
+}});
+
+define({id: "b2211990", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex.block`G = \begin{bmatrix}
+1 & 0 & 0\\
+0 & \cos \omega_j  & \sin \omega_j  \\
+0 & -\sin \omega_j  & \cos \omega_j  \\
+\end{bmatrix}`
+))
+}});
+
+define({id: "a39c2c56", mode: "inline", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex`\omega_j = 2\pi / 48`
+))
+}});
+
+define({id: "75d05c4d", inputs: ["view","Inputs","d3","data"], outputs: ["datas","inclci"], body: (view,Inputs,d3,data) => {
+const datas = view(Inputs.select(d3.group(data, d => d.metric)));
+const inclci = view(Inputs.toggle({ label: "Include 95% CI" }));
+return {datas,inclci};
+}});
+
+define({id: "1decf1ce", inputs: ["resize","Plot","d3","data","datas","inclci","display"], body: async (resize,Plot,d3,data,datas,inclci,display) => {
+display(await(
+resize(width => { return Plot.plot({ 
+  width, 
+  marginBottom: 40,
+  title: `3 days to ${d3.timeFormat("%-d %B %H:%M")(data[data.length-1].obstime)}`,
+  color: { legend: true, 
+    domain: ["Avalon", "Essendon", "Frankston", "Viewbank", "Trend"], 
+    range: ["#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "black"] }, 
+  y: { label: datas[0].metric }, 
+  x: { type: `time`, label: `Local Time` },
+  inset: 10,
+  marks: [ 
+    Plot.frame(), 
+    inclci ? Plot.areaY(datas, { 
+      x: "obstime", 
+      y1: d => d.Trend + 1.96*d.TrendVar, 
+      y2: d => d.Trend - 1.96*d.TrendVar, 
+      fill: "lightgray", 
+      opacity: 0.6 }) : null, 
+    ["Avalon", "Essendon", "Frankston", "Viewbank"].map(
+      d => Plot.lineY(datas, { 
+        x: "obstime", 
+        y: d, 
+        stroke: () => d 
+        })
+      ), 
+    Plot.lineY(datas, { 
+      x: "obstime", 
+      y: "Trend",  stroke: () => "Trend" })
+  ]
+  }); 
+})
+))
+}});
+
+define({id: "c7a20bc2", inputs: ["resize","Plot","d3","data","datas","inclci","display"], body: async (resize,Plot,d3,data,datas,inclci,display) => {
+display(await(
+resize(width => { return Plot.plot({ 
+  width, 
+  marginBottom: 40,
+  title: `3 days to ${d3.timeFormat("%-d %B %H:%M")(data[data.length-1].obstime)}`,
+  color: { legend: true }, 
+  y: { label: datas[0].metric }, 
+  x: { type: `time`, label: `Local Time` },
+  inset: 10,
+  marks: [ 
+    Plot.frame(), 
+    inclci ? Plot.areaY(datas, { 
+      x: "obstime", 
+      y1: d => d.Cycle + 1.96*Math.sqrt(d.CycleVar), 
+      y2: d => d.Cycle - 1.96*Math.sqrt(d.CycleVar), 
+      fill: "lightgray", 
+      opacity: 0.6 }) : null, 
+    Plot.lineY(datas, { 
+      x: "obstime", 
+      y: "Cycle" })
+  ]
+  }); 
+})
+))
+}});
+
+</script>
+</head>
+<body>
+<div id="observablehq-center">
+<main id="observablehq-main" class="observablehq">
+<h1 id="melbourne-weather" tabindex="-1"><a class="observablehq-header-anchor" href="#melbourne-weather">Melbourne Weather</a></h1>
+<p>Analysis of the daily seaosonal cycles of weather in Melbourne, using a multivariate Kalman Filter model. This tool illustrates the use of the R library <code>dlm</code> for state space modelling and the <code>d3</code> library for data visualisation.</p>
+<h2 id="data-loader" tabindex="-1"><a class="observablehq-header-anchor" href="#data-loader">Data loader</a></h2>
+<p>Read the data file from the data loader:</p>
+<div class="observablehq observablehq--block"><!--:ab00fc39:--></div>
+<pre data-language="js"><code class="language-js"><span class="hljs-keyword">const</span> data = <span class="hljs-keyword">await</span> <span class="hljs-title class_">FileAttachment</span>(<span class="hljs-string">"data/bom.csv"</span>).<span class="hljs-title function_">csv</span>({ <span class="hljs-attr">typed</span>: <span class="hljs-literal">true</span> })
+</code></pre>
+<p>The 'data frame' is imported as a row based array:</p>
+<div class="observablehq observablehq--block"><observablehq-loading></observablehq-loading><!--:c94a6d48:--></div>
+<pre data-language="js"><code class="language-js"><span class="hljs-title function_">display</span>(data)
+</code></pre>
+<h2 id="methodology" tabindex="-1"><a class="observablehq-header-anchor" href="#methodology">Methodology</a></h2>
+<p>The data loader <code>data/bom.csv.R</code> implements a multivariate Kalman Filter signal over 4 weather stations
+around Melbourne. <a href="https://darrenjw.github.io/time-series/ssm.html" target="_blank" rel="noopener noreferrer">see</a></p>
+<div class="observablehq observablehq--block"><observablehq-loading></observablehq-loading><!--:c66cc8e8:--></div>
+<p>As a multivariate observation model, the measurement matrix F is given as the sum of a local linear trend and a latent cyclical component, the later specified as a trignometric series.</p>
+<div class="observablehq observablehq--block"><observablehq-loading></observablehq-loading><!--:7d234596:--></div>
+<p>The updating of the 3 latent series is given by the matrix G, the trigonometric representation of the cyclical component combines a sine and cosine components of period 48 of period 48 (each half hour):</p>
+<div class="observablehq observablehq--block"><observablehq-loading></observablehq-loading><!--:b2211990:--></div>
+<p>where <observablehq-loading></observablehq-loading><!--:a39c2c56:-->.</p>
+<details>
+<summary>R implementation code</summary>
+<pre data-language="r"><code class="language-r"><span class="hljs-comment"># The model representation as matrices</span>
+fn <span class="hljs-operator">&lt;-</span> <span class="hljs-keyword">function</span><span class="hljs-punctuation">(</span>parm<span class="hljs-punctuation">)</span> <span class="hljs-punctuation">{</span> 
+  <span class="hljs-comment"># Optimal parameter update function</span>
+  mod <span class="hljs-operator">&lt;-</span> dlm<span class="hljs-punctuation">(</span>
+    FF<span class="hljs-operator">=</span>matrix<span class="hljs-punctuation">(</span><span class="hljs-built_in">c</span><span class="hljs-punctuation">(</span><span class="hljs-number">1</span><span class="hljs-punctuation">,</span><span class="hljs-number">1</span><span class="hljs-punctuation">,</span><span class="hljs-number">1</span><span class="hljs-punctuation">,</span><span class="hljs-number">1</span><span class="hljs-punctuation">,</span><span class="hljs-number">1</span><span class="hljs-punctuation">,</span><span class="hljs-number">1</span><span class="hljs-punctuation">,</span><span class="hljs-number">1</span><span class="hljs-punctuation">,</span><span class="hljs-number">1</span><span class="hljs-punctuation">,</span><span class="hljs-number">0</span><span class="hljs-punctuation">,</span><span class="hljs-number">0</span><span class="hljs-punctuation">,</span><span class="hljs-number">0</span><span class="hljs-punctuation">,</span><span class="hljs-number">0</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span> ncol<span class="hljs-operator">=</span><span class="hljs-number">3</span><span class="hljs-punctuation">,</span> byrow<span class="hljs-operator">=</span><span class="hljs-literal">FALSE</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span> 
+    V<span class="hljs-operator">=</span>diag<span class="hljs-punctuation">(</span><span class="hljs-built_in">exp</span><span class="hljs-punctuation">(</span><span class="hljs-built_in">rep</span><span class="hljs-punctuation">(</span>parm<span class="hljs-punctuation">[</span><span class="hljs-number">1</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span> <span class="hljs-number">4</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span> 
+    GG<span class="hljs-operator">=</span><span class="hljs-punctuation">(</span>dlmModPoly<span class="hljs-punctuation">(</span><span class="hljs-number">1</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">+</span> dlmModTrig<span class="hljs-punctuation">(</span>s<span class="hljs-operator">=</span><span class="hljs-number">24</span><span class="hljs-operator">*</span><span class="hljs-number">2</span><span class="hljs-punctuation">,</span> q<span class="hljs-operator">=</span><span class="hljs-number">1</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><span class="hljs-operator">$</span>GG<span class="hljs-punctuation">,</span> 
+    W<span class="hljs-operator">=</span>diag<span class="hljs-punctuation">(</span><span class="hljs-built_in">exp</span><span class="hljs-punctuation">(</span>parm<span class="hljs-punctuation">[</span><span class="hljs-number">2</span><span class="hljs-operator">:</span><span class="hljs-number">4</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span> 
+    m0<span class="hljs-operator">=</span><span class="hljs-built_in">c</span><span class="hljs-punctuation">(</span><span class="hljs-number">0</span><span class="hljs-punctuation">,</span><span class="hljs-number">0</span><span class="hljs-punctuation">,</span><span class="hljs-number">0</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span> 
+    C0<span class="hljs-operator">=</span>diag<span class="hljs-punctuation">(</span><span class="hljs-built_in">c</span><span class="hljs-punctuation">(</span><span class="hljs-number">1</span><span class="hljs-punctuation">,</span><span class="hljs-number">1</span><span class="hljs-punctuation">,</span><span class="hljs-number">1</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span>
+  <span class="hljs-built_in">return</span><span class="hljs-punctuation">(</span>mod<span class="hljs-punctuation">)</span> <span class="hljs-punctuation">}</span> 
+<span class="hljs-comment"># Finding the parameters of the unknown coefficients </span>
+fit <span class="hljs-operator">&lt;-</span> dlmMLE<span class="hljs-punctuation">(</span>data.m<span class="hljs-punctuation">,</span> parm<span class="hljs-operator">=</span><span class="hljs-built_in">log</span><span class="hljs-punctuation">(</span><span class="hljs-built_in">c</span><span class="hljs-punctuation">(</span><span class="hljs-number">1</span><span class="hljs-punctuation">,</span><span class="hljs-number">1</span><span class="hljs-punctuation">,</span><span class="hljs-number">1</span><span class="hljs-punctuation">,</span><span class="hljs-number">1</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span> build <span class="hljs-operator">=</span> fn<span class="hljs-punctuation">,</span> hessian <span class="hljs-operator">=</span> <span class="hljs-literal">TRUE</span><span class="hljs-punctuation">)</span>
+<span class="hljs-comment"># Fitting the model to the data to measure the latent states</span>
+fitf <span class="hljs-operator">&lt;-</span> dlmFilter<span class="hljs-punctuation">(</span>data.m<span class="hljs-punctuation">,</span> fn<span class="hljs-punctuation">(</span>fit<span class="hljs-operator">$</span>par<span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span> 
+</code></pre>
+</details>
+<br>
+<h2 id="common-trend-signal" tabindex="-1"><a class="observablehq-header-anchor" href="#common-trend-signal">Common trend signal</a></h2>
+<p>Compares the observed weather by station with the common trend (removing the cycling component). The cyclical component stronest for temperature, is weakly statistically significant for wind speed, but there is no systematic cyclical component in the humidity and pressure.</p>
+<div class="observablehq observablehq--block"><!--:75d05c4d:--></div>
+<pre data-language="js"><code class="language-js"><span class="hljs-keyword">const</span> datas = <span class="hljs-title function_">view</span>(<span class="hljs-title class_">Inputs</span>.<span class="hljs-title function_">select</span>(d3.<span class="hljs-title function_">group</span>(data, <span class="hljs-function"><span class="hljs-params">d</span> =&gt;</span> d.<span class="hljs-property">metric</span>)));
+<span class="hljs-keyword">const</span> inclci = <span class="hljs-title function_">view</span>(<span class="hljs-title class_">Inputs</span>.<span class="hljs-title function_">toggle</span>({ <span class="hljs-attr">label</span>: <span class="hljs-string">"Include 95% CI"</span> }));
+</code></pre>
+<div class="observablehq observablehq--block"><observablehq-loading></observablehq-loading><!--:1decf1ce:--></div>
+<pre data-language="js"><code class="language-js"><span class="hljs-title function_">resize</span>(<span class="hljs-function"><span class="hljs-params">width</span> =&gt;</span> { <span class="hljs-keyword">return</span> <span class="hljs-title class_">Plot</span>.<span class="hljs-title function_">plot</span>({ 
+  width, 
+  <span class="hljs-attr">marginBottom</span>: <span class="hljs-number">40</span>,
+  <span class="hljs-attr">title</span>: <span class="hljs-string">`3 days to <span class="hljs-subst">${d3.timeFormat(<span class="hljs-string">"%-d %B %H:%M"</span>)(data[data.length-<span class="hljs-number">1</span>].obstime)}</span>`</span>,
+  <span class="hljs-attr">color</span>: { <span class="hljs-attr">legend</span>: <span class="hljs-literal">true</span>, 
+    <span class="hljs-attr">domain</span>: [<span class="hljs-string">"Avalon"</span>, <span class="hljs-string">"Essendon"</span>, <span class="hljs-string">"Frankston"</span>, <span class="hljs-string">"Viewbank"</span>, <span class="hljs-string">"Trend"</span>], 
+    <span class="hljs-attr">range</span>: [<span class="hljs-string">"#1f77b4"</span>, <span class="hljs-string">"#ff7f0e"</span>, <span class="hljs-string">"#2ca02c"</span>, <span class="hljs-string">"#d62728"</span>, <span class="hljs-string">"black"</span>] }, 
+  <span class="hljs-attr">y</span>: { <span class="hljs-attr">label</span>: datas[<span class="hljs-number">0</span>].<span class="hljs-property">metric</span> }, 
+  <span class="hljs-attr">x</span>: { <span class="hljs-attr">type</span>: <span class="hljs-string">`time`</span>, <span class="hljs-attr">label</span>: <span class="hljs-string">`Local Time`</span> },
+  <span class="hljs-attr">inset</span>: <span class="hljs-number">10</span>,
+  <span class="hljs-attr">marks</span>: [ 
+    <span class="hljs-title class_">Plot</span>.<span class="hljs-title function_">frame</span>(), 
+    inclci ? <span class="hljs-title class_">Plot</span>.<span class="hljs-title function_">areaY</span>(datas, { 
+      <span class="hljs-attr">x</span>: <span class="hljs-string">"obstime"</span>, 
+      <span class="hljs-attr">y1</span>: <span class="hljs-function"><span class="hljs-params">d</span> =&gt;</span> d.<span class="hljs-property">Trend</span> + <span class="hljs-number">1.96</span>*d.<span class="hljs-property">TrendVar</span>, 
+      <span class="hljs-attr">y2</span>: <span class="hljs-function"><span class="hljs-params">d</span> =&gt;</span> d.<span class="hljs-property">Trend</span> - <span class="hljs-number">1.96</span>*d.<span class="hljs-property">TrendVar</span>, 
+      <span class="hljs-attr">fill</span>: <span class="hljs-string">"lightgray"</span>, 
+      <span class="hljs-attr">opacity</span>: <span class="hljs-number">0.6</span> }) : <span class="hljs-literal">null</span>, 
+    [<span class="hljs-string">"Avalon"</span>, <span class="hljs-string">"Essendon"</span>, <span class="hljs-string">"Frankston"</span>, <span class="hljs-string">"Viewbank"</span>].<span class="hljs-title function_">map</span>(
+      <span class="hljs-function"><span class="hljs-params">d</span> =&gt;</span> <span class="hljs-title class_">Plot</span>.<span class="hljs-title function_">lineY</span>(datas, { 
+        <span class="hljs-attr">x</span>: <span class="hljs-string">"obstime"</span>, 
+        <span class="hljs-attr">y</span>: d, 
+        <span class="hljs-attr">stroke</span>: <span class="hljs-function">() =&gt;</span> d 
+        })
+      ), 
+    <span class="hljs-title class_">Plot</span>.<span class="hljs-title function_">lineY</span>(datas, { 
+      <span class="hljs-attr">x</span>: <span class="hljs-string">"obstime"</span>, 
+      <span class="hljs-attr">y</span>: <span class="hljs-string">"Trend"</span>,  <span class="hljs-attr">stroke</span>: <span class="hljs-function">() =&gt;</span> <span class="hljs-string">"Trend"</span> })
+  ]
+  }); 
+})
+</code></pre>
+<p>The latent cyclical component of the weather over the last 3 days is shown below, it shows the inherent daily variation from day to night in the different weather metrics, averaged across the 4 observation stations.</p>
+<div class="observablehq observablehq--block"><observablehq-loading></observablehq-loading><!--:c7a20bc2:--></div>
+</main>
+<footer id="observablehq-footer">
+<div>Built with <a href="https://observablehq.com/" target="_blank" rel="noopener noreferrer">Observable</a> on <a title="2025-02-04T10:53:32">Feb 4, 2025</a>.</div>
+</footer>
+</div>
+</body>
+</html>
