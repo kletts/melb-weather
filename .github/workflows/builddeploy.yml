@@ -6,8 +6,6 @@ permissions:
   id-token: write
 
 on:
-  schedule: 
-   - cron: "10 17 * * *"
   workflow_dispatch: 
 
 jobs:
